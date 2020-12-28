@@ -9,6 +9,15 @@ import (
 )
 
 func main() {
+											//grams
+	egg := map[string]float64{"Calories":75, "Protein": 7, "Fat":5, "Sugar": 0, "Vitamin C": 0}
+	cane := map[string]float64{"Calories":60, "Protein": 0, "Fat":0, "Sugar": 10, "Vitamin C": 0}
+	yogurt := map[string]float64{"Calories":90, "Protein": 4, "Fat":1, "Sugar": 12, "Vitamin C": 0.0071}
+
+	fmt.Println(egg["Calories"])
+	fmt.Println(cane["Sugar"])
+	fmt.Println(yogurt["Vitamin C"])
+
 	fmt.Println("Server started...")
 	fmt.Println(" * Running on http://127.0.0.1:8080/")
 	fmt.Println(" * IP: localhost")
