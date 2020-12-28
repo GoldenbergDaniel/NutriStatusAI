@@ -8,18 +8,13 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var usersNutrience = map[string]float64{"Calories":0, "Protein": 0, "Fat":0, "Sugar": 0, "Vitamin C": 0}
+var usersNutrience = map[string]float64{"Calories": 0, "Protein": 0, "Fat": 0, "Sugar": 0, "Vitamin C": 0}
 
-var egg = map[string]float64{"Calories":75, "Protein": 7, "Fat":5, "Sugar": 0, "Vitamin C": 0}	
-var cane = map[string]float64{"Calories":60, "Protein": 0, "Fat":0, "Sugar": 10, "Vitamin C": 0}
-var yogurt = map[string]float64{"Calories":90, "Protein": 4, "Fat":1, "Sugar": 12, "Vitamin C": 0.0071}
+var egg = map[string]float64{"Calories": 75, "Protein": 7, "Fat": 5, "Sugar": 0, "Vitamin C": 0}
+var cane = map[string]float64{"Calories": 60, "Protein": 0, "Fat": 0, "Sugar": 10, "Vitamin C": 0}
+var yogurt = map[string]float64{"Calories": 90, "Protein": 4, "Fat": 1, "Sugar": 12, "Vitamin C": 0.0071}
 
 func main() {
-
-	fmt.Println(egg["Calories"])
-	fmt.Println(cane["Sugar"])
-	fmt.Println(yogurt["Vitamin C"])
-
 	fmt.Println("Server started...")
 	fmt.Println(" * Running on http://127.0.0.1:8080/")
 	fmt.Println(" * IP: localhost")
@@ -47,20 +42,17 @@ func getFoodResponse(w http.ResponseWriter, r *http.Request) {
 		for key, value := range egg {
 			usersNutrience[key] = value
 		}
-
 	} else if params["food-name"] == "Cane" {
 		for key, value := range cane {
 			usersNutrience[key] = value
 		}
-
 	} else if params["food-name"] == "Yogurt" {
 		for key, value := range cane {
 			usersNutrience[key] = value
 		}
-
 	}
 
-	json.NewEncoder(w).Encode(params)
+	json.NewEncoder(w).Encode(usersNutrience)
 }
 
 func checkError(err error) {
@@ -68,4 +60,3 @@ func checkError(err error) {
 		fmt.Println(err)
 	}
 }
-
