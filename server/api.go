@@ -3,7 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
+	"net/smtp"
 
 	"github.com/gorilla/mux"
 )
@@ -59,4 +61,28 @@ func checkError(err error) {
 	if err != nil {
 		fmt.Println(err)
 	}
+}
+
+func sendEmail(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+
+	from := "johnlinstest@gmail.com"
+	pass := "kqu3-b@vFu_/P4W7"
+	to := params["email"]
+
+	msg := "From: " + from + "\n" +
+		"To: " + to + "\n" +
+		"Subject: emergency\n\n" +
+		params["msg"]
+
+	err := smtp.SendMail("smtp.gmail.com:587",
+		smtp.PlainAuth("", from, pass, "smtp.gmail.com"),
+		from, []string{to}, []byte(msg))
+
+	if err != nil {
+		log.Printf("smtp error: %s", err)
+		return
+	}
+
+	json.NewEncoder(w).Encode("Message Sent!")
 }
