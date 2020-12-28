@@ -8,11 +8,13 @@ import (
 	"github.com/gorilla/mux"
 )
 
+var usersNutrience = map[string]float64{"Calories":0, "Protein": 0, "Fat":0, "Sugar": 0, "Vitamin C": 0}
+
+var egg = map[string]float64{"Calories":75, "Protein": 7, "Fat":5, "Sugar": 0, "Vitamin C": 0}	
+var cane = map[string]float64{"Calories":60, "Protein": 0, "Fat":0, "Sugar": 10, "Vitamin C": 0}
+var yogurt = map[string]float64{"Calories":90, "Protein": 4, "Fat":1, "Sugar": 12, "Vitamin C": 0.0071}
+
 func main() {
-											//grams
-	egg := map[string]float64{"Calories":75, "Protein": 7, "Fat":5, "Sugar": 0, "Vitamin C": 0}
-	cane := map[string]float64{"Calories":60, "Protein": 0, "Fat":0, "Sugar": 10, "Vitamin C": 0}
-	yogurt := map[string]float64{"Calories":90, "Protein": 4, "Fat":1, "Sugar": 12, "Vitamin C": 0.0071}
 
 	fmt.Println(egg["Calories"])
 	fmt.Println(cane["Sugar"])
@@ -41,6 +43,23 @@ func getFoodResponse(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
 
+	if params["food-name"] == "Egg" {
+		for key, value := range egg {
+			usersNutrience[key] = value
+		}
+
+	} else if params["food-name"] == "Cane" {
+		for key, value := range cane {
+			usersNutrience[key] = value
+		}
+
+	} else if params["food-name"] == "Yogurt" {
+		for key, value := range cane {
+			usersNutrience[key] = value
+		}
+
+	}
+
 	json.NewEncoder(w).Encode(params)
 }
 
@@ -49,3 +68,4 @@ func checkError(err error) {
 		fmt.Println(err)
 	}
 }
+
