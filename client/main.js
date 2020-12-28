@@ -13,6 +13,7 @@ async function init() {
     webcam = new tmImage.Webcam(200, 200, flip)
     await webcam.setup()
     await webcam.play()
+
     window.requestAnimationFrame(loop)
 
     document.getElementById("webcam-container").appendChild(webcam.canvas)
@@ -28,7 +29,7 @@ async function loop() {
     window.requestAnimationFrame(loop)
 }
 
-  async function predict() {
+async function predict() {
     const prediction = await model.predict(webcam.canvas)
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction =
@@ -37,12 +38,10 @@ async function loop() {
     }
 }
 
-
-
 //CHART
 var dData = function() {
     return Math.round(Math.random() * 90) + 10
-  };
+  }
   
   var barChartData = {
     labels: ["dD 1", "dD 2", "dD 3", "dD 4", "dD 5", "dD 6", "dD 7", "dD 8", "dD 9", "dD 10"],
@@ -60,7 +59,7 @@ var dData = function() {
     barValueSpacing: 2
   });
   setInterval(function() {
-    barChartDemo.removeData();
-    barChartDemo.addData([dData()], "dD " + index);
-    index++;
-  }, 3000);
+    barChartDemo.removeData()
+    barChartDemo.addData([dData()], "dD " + index)
+    index++
+  }, 3000)
