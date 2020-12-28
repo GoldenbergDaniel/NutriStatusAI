@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 	"net/smtp"
 
@@ -57,12 +56,6 @@ func getFoodResponse(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(usersNutrience)
 }
 
-func checkError(err error) {
-	if err != nil {
-		fmt.Println(err)
-	}
-}
-
 func sendEmail(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 
@@ -79,10 +72,13 @@ func sendEmail(w http.ResponseWriter, r *http.Request) {
 		smtp.PlainAuth("", from, pass, "smtp.gmail.com"),
 		from, []string{to}, []byte(msg))
 
-	if err != nil {
-		log.Printf("smtp error: %s", err)
-		return
-	}
+	checkError(err)
 
 	json.NewEncoder(w).Encode("Message Sent!")
+}
+
+func checkError(err error) {
+	if err != nil {
+		fmt.Println(err)
+	}
 }
