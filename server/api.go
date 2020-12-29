@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/smtp"
 	"strconv"
+
 	"github.com/gorilla/mux"
 )
 
@@ -25,7 +26,9 @@ func main() {
 
 	r.HandleFunc("/api/", getFoodResponse).Queries("email", "{email}", "name", "{name}", "food-name", "{food}").Methods("GET")
 
+
 	buildHandler := http.FileServer(http.Dir("../client"))
+
 	r.PathPrefix("/").Handler(buildHandler)
 
 	http.ListenAndServe(":8080", r)
@@ -79,7 +82,7 @@ func sendEmail(to, message string) {
 	fmt.Println("Message Sent!")
 }
 
-func map2string(input map[string]float64) string{
+func map2string(input map[string]float64) string {
 	var output string
 	for key, value := range input {
 		output += key + " : " + strconv.FormatFloat(value, 'f', 6, 64) + "\n"
