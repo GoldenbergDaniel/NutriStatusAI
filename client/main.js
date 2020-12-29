@@ -85,21 +85,6 @@ async function predict() {
     }
 }
 
-function saveFood() {
-    var url = `http://localhost:8080/api/?
-        email=${encodeURIComponent(email)}&
-        name=${encodeURIComponent(userName)}&
-        food-name=${encodeURIComponent(foodName)}`
-
-    var request = new XMLHttpRequest()
-    request.open("GET", url)
-    request.onload = () => {
-        // var response = JSON.parse(request.responseText) 
-        // document.querySelector("#output").querySelector("h3").innerText = response
-    }
-    
-    request.send()
-}
 
 // CHART
 var dData = function() {
