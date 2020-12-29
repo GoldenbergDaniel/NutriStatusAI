@@ -71,16 +71,16 @@ async function predict() {
         labelContainer.childNodes[i].innerHTML = classPrediction
 
         if (prediction[0].probability.toFixed(2) == 0.85) {
-            foodName = "egg"
+            foodName = "Egg"
         }
 
         if (prediction[1].probability.toFixed(2) == 0.85) {
-            foodName = "cane"
+            foodName = "Cane"
         }
 
         if (prediction[3].probability.toFixed(2) == 0.85) {
             window.alert(predicton[2])
-            foodName = "yogurt"
+            foodName = "Yogurt"
         }
     }
 }
