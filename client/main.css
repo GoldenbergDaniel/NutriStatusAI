@@ -76,10 +76,9 @@ padding: 4px;
 
 /* CHART */
 .chart {
-  top: 260px;
-  right: 300px;
   position: absolute;
-
+  margin-left: 700px;
+margin-top: -260px;
 }
 .chart div {
   font: 10px sans-serif;
