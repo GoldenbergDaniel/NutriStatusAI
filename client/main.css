@@ -2,21 +2,92 @@
     --backgrounnd: #CF1F6A;
 }
 
+#title{
+  font-size: 2em;
+  color: var(--backgrounnd);
+  text-shadow: 0px 0px 10px lightgray;
+  margin-top: 20px;
+}
+
 #webcam-container {
     border-radius: 10px;
-    background-color: var(--backgrounnd);
+    box-shadow: 0px 0px 16px var(--backgrounnd);
     display: block;
     color: white;
+    border: 0;
+    margin: 20px 0px 0px 110px;
+    height: 400px;
+    width: 400px;
 }
+
+#start {
+  border-radius: 10px;
+    box-shadow: 0px 0px 16px var(--backgrounnd);
+    display: block;
+    color: white;
+    background-color: var(--backgrounnd);
+  border: 0;
+  margin: 20px 0px 0px 110px;
+  height: 50px;
+  width: 400px;
+}
+
+.input {
+background-color: lightgray;
+border: 0;
+border-radius: 5px;
+box-shadow: 0px 0px 5px var(--backgrounnd);
+margin: 30px 0px 0px 5px;
+height: 30px;
+width: 140px;
+padding: 4px;
+}
+
+#run {
+  border-radius: 10px;
+    box-shadow: 0px 0px 16px var(--backgrounnd);
+    display: block;
+    color: white;
+    background-color: var(--backgrounnd);
+  border: 0;
+  margin: 20px 0px 0px 245px;
+  height: 50px;
+  width: 100px;
+
+}
+
+#add {
+  border-radius: 10px;
+    box-shadow: 0px 0px 16px var(--backgrounnd);
+    
+    color: white;
+    background-color: var(--backgrounnd);
+  border: 0;
+  height: 40px;
+  width: 80px;
+  margin: 0px 0px 0px 10px;
+  padding: 4px;
+}
+
+#details {
+  margin: 20px 0px 0px 110px;
+}
+
 
 /* CHART */
-.container {
-  width: 80%;
-  margin: 20px auto;
-}
+.chart {
+  top: 260px;
+  right: 300px;
+  position: absolute;
 
-.p {
-  text-align: center;
-  font-size: 14px;
-  padding-top: 140px;
+}
+.chart div {
+  font: 10px sans-serif;
+  background-color: var(--backgrounnd);
+  text-align: right;
+  padding: 3px;
+  margin: 4px;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px lightgray;
 }
