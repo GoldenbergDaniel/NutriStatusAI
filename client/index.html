@@ -11,6 +11,22 @@
     <button type="button" onclick="init()">Start</button>
     <div id="webcam-container"></div>
     <div id="label-container"></div>
+
+    <div id="output"></div>
+
+    <input type="text" id="emailText" class="input" placeholder="email@example.com">
+    <input type="text" id="nameText" class="input" placeholder="name">
+
+    <button onclick="inputData()" id="add">Add</button>
+
+    <br/>
+    <br/>
+    Email: <b><p id="email"></p></b>
+    Name: <b><p id="name"></p></b>
+    </center>
+
+
+    <a onclick="request()">Run</a>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     

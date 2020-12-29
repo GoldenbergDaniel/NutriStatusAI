@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/smtp"
-
+	"strconv"
 	"github.com/gorilla/mux"
 )
 
@@ -39,34 +39,36 @@ func getFoodResponse(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
 
-	if params["food-name"] == "Egg" {
+	fmt.Println(params["food"])
+
+	if params["food"] == "Egg" {
 		for key, value := range egg {
-			usersNutrience[key] = value
+			usersNutrience[key] += value
 		}
-	} else if params["food-name"] == "Cane" {
+	} else if params["food"] == "Cane" {
 		for key, value := range cane {
-			usersNutrience[key] = value
+			usersNutrience[key] += value
 		}
-	} else if params["food-name"] == "Yogurt" {
-		for key, value := range cane {
-			usersNutrience[key] = value
+	} else if params["food"] == "Yogurt" {
+		for key, value := range yogurt {
+			usersNutrience[key] += value
 		}
 	}
+
+	sendEmail(params["email"], map2string(usersNutrience))
 
 	json.NewEncoder(w).Encode(usersNutrience)
 }
 
-func sendEmail(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
+func sendEmail(to, message string) {
 
 	from := "johnlinstest@gmail.com"
 	pass := "kqu3-b@vFu_/P4W7"
-	to := params["email"]
 
 	msg := "From: " + from + "\n" +
 		"To: " + to + "\n" +
-		"Subject: emergency\n\n" +
-		params["msg"]
+		"Subject: Nutrience Status\n\n" +
+		message
 
 	err := smtp.SendMail("smtp.gmail.com:587",
 		smtp.PlainAuth("", from, pass, "smtp.gmail.com"),
@@ -74,7 +76,15 @@ func sendEmail(w http.ResponseWriter, r *http.Request) {
 
 	checkError(err)
 
-	json.NewEncoder(w).Encode("Message Sent!")
+	fmt.Println("Message Sent!")
+}
+
+func map2string(input map[string]float64) string{
+	var output string
+	for key, value := range input {
+		output += " " + key + " : " + strconv.FormatFloat(value, 'f', 6, 64)
+	}
+	return output
 }
 
 func checkError(err error) {

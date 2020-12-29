@@ -6,6 +6,31 @@ let email
 let userName
 let foodName
 
+function inputData() {
+    email = document.getElementById("emailText").value;
+    document.getElementById("email").innerHTML = email;
+
+    userName = document.getElementById("nameText").value;
+    document.getElementById("name").innerHTML = userName;
+  }
+
+function request() {
+
+    var message = `Hello ${encodeURIComponent(userName)}, \n Your stats are below: \n test test test`
+  var url = `http://localhost:8080/api?email=${encodeURIComponent(email)}&name=${encodeURIComponent(userName)}&food-name=${encodeURIComponent(foodName)}`
+
+  var request = new XMLHttpRequest()
+  request.open("GET", url)
+  request.onload = () => {
+      var response = JSON.parse(request.responseText) 
+      //document.querySelector("#output").querySelector("span").innerText = response
+
+  }
+  
+  request.send()
+
+}
+
 async function init() {
     const modelURL = URL + "model.json"
     const metadataURL = URL + "metadata.json"
