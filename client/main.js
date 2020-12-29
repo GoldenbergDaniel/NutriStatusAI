@@ -15,22 +15,33 @@ function inputData() {
   }
 
 function request() {
-
     //var message = `Hello ${encodeURIComponent(userName)}, \n Your stats are below: \n test test test`
   var url = `http://localhost:8080/api/?email=${encodeURIComponent(email)}&name=${encodeURIComponent(userName)}&food-name=${encodeURIComponent(foodName)}`
 
   var request = new XMLHttpRequest()
   request.open("GET", url)
   request.onload = () => {
-      var response = JSON.parse(request.responseText) 
+    var response = JSON.parse(request.responseText)
 
+    let nutrition = [0, 0, 0, 0, 0]
 
-      document.querySelector("#output").innerText = response.Calories
+    nutrition[0] = parseFloat(response.Calories)
+    nutrition[1] = parseFloat(response.Protein)
+    nutrition[2] = parseFloat(response.Fat)
+    nutrition[3] = parseFloat(response.Sugar)
+    nutrition[4] = parseFloat(response.VitaminC)
 
+    var x = d3.scale.linear().domain([0, d3.max(nutrition)]).range([0, 420]);
+
+    d3.select(".chart")
+        .selectAll("div")
+        .data(nutrition)
+        .enter().append("div")
+        .style("width", function(d) { return x(d) + "px"; })
+        .text(function(d) { return d; });
   }
   
   request.send()
-
 }
 
 async function init() {
@@ -85,5 +96,6 @@ async function predict() {
     }
 }
 
-
-// CHART
+function getNutr() {
+    return nutrition
+}

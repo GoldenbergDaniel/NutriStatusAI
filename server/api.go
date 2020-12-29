@@ -10,11 +10,11 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var usersNutrience = map[string]float64{"Calories": 0, "Protein": 0, "Fat": 0, "Sugar": 0, "Vitamin C": 0}
+var usersNutrience = map[string]float64{"Calories": 0, "Protein": 0, "Fat": 0, "Sugar": 0, "VitaminC": 0}
 
-var egg = map[string]float64{"Calories": 75, "Protein": 7, "Fat": 5, "Sugar": 0, "Vitamin C": 0}
-var cane = map[string]float64{"Calories": 60, "Protein": 0, "Fat": 0, "Sugar": 10, "Vitamin C": 0}
-var yogurt = map[string]float64{"Calories": 90, "Protein": 4, "Fat": 1, "Sugar": 12, "Vitamin C": 0.0071}
+var egg = map[string]float64{"Calories": 75, "Protein": 7, "Fat": 5, "Sugar": 0.1, "VitaminC": 0.1}
+var cane = map[string]float64{"Calories": 60, "Protein": 0.1, "Fat": 0, "Sugar": 10, "VitaminC": 0.1}
+var yogurt = map[string]float64{"Calories": 90, "Protein": 4, "Fat": 1, "Sugar": 12, "VitaminC": 0.071}
 
 func main() {
 	fmt.Println("Server started...")
@@ -25,7 +25,6 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/api/", getFoodResponse).Queries("email", "{email}", "name", "{name}", "food-name", "{food}").Methods("GET")
-
 
 	buildHandler := http.FileServer(http.Dir("../client"))
 
