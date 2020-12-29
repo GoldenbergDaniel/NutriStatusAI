@@ -82,7 +82,7 @@ func sendEmail(to, message string) {
 func map2string(input map[string]float64) string{
 	var output string
 	for key, value := range input {
-		output += key + " : " + strconv.FormatFloat(value, 'f', 6, 64)
+		output += key + " : " + strconv.FormatFloat(value, 'f', 6, 64) + "\n"
 	}
 	return output
 }

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriStatusAI</title>
-    <link href="./main.css">
+    <link href="./main.css" rel="stylesheet" type="text/css"/>
+    <link href="./graph.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div>NutriStatusAI</div>
@@ -25,7 +26,7 @@
     <br/>
     Email: <b><p id="email"></p></b>
     Name: <b><p id="name"></p></b>
-    </center>
+    
 
 
     <button onclick="request()">Run</button>
@@ -34,14 +35,60 @@
     
     
     
-    <div class="container">
-  <h2>Daily Intake</h2>
-  <div>
-    <canvas id="canvas"></canvas>
-  </div>
-</div>
-    
-    
-    <script src="main.js"></script>
+
+
+
+
+
+<main>
+  <section>
+    <ul class="style-1">
+      <li>
+        <em>Calories</em>
+        <span>227</span>
+      </li>
+      <li>
+        <em>Protein</em>
+        <span>98</span>
+      </li>
+      <li>
+        <em>Fat</em>
+        <span>34</span>
+      </li>
+      <li>
+        <em>Sugar</em>
+        <span>148</span>
+      </li>
+      <li>
+        <em>Vitamin C</em>
+        <span>1310</span>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <ul class="style-2">
+      <li>
+        <em>Cars</em>
+        <span>453</span>
+      </li>
+      <li>
+        <em>Trucks</em>
+        <span>256</span>
+      </li>
+      <li>
+        <em>Boats</em>
+        <span>131</span>
+      </li>
+      <li>
+        <em>Trains</em>
+        <span>457</span>
+      </li>
+      <li>
+        <em>Hovercraft</em>
+        <span>10</span>
+      </li>
+    </ul>
+  </section>
+</main>
+
 </body>
-</html>
