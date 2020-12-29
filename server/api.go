@@ -25,7 +25,7 @@ func main() {
 
 	r.HandleFunc("/api/", getFoodResponse).Queries("email", "{email}", "name", "{name}", "food-name", "{food}").Methods("GET")
 
-	buildHandler := http.FileServer(http.Dir("./client/"))
+	buildHandler := http.FileServer(http.Dir("../client"))
 	r.PathPrefix("/").Handler(buildHandler)
 
 	http.ListenAndServe(":8080", r)
