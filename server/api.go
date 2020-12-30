@@ -10,7 +10,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var usersNutrience = map[string]float64{"Calories": 0, "Protein": 0, "Fat": 0, "Sugar": 0, "VitaminC": 0}
+var usersNutrients = map[string]float64{"Calories": 0, "Protein": 0, "Fat": 0, "Sugar": 0, "VitaminC": 0}
 
 var egg = map[string]float64{"Calories": 75, "Protein": 7, "Fat": 5, "Sugar": 0.1, "VitaminC": 0.1}
 var cane = map[string]float64{"Calories": 60, "Protein": 0.1, "Fat": 0, "Sugar": 10, "VitaminC": 0.1}
@@ -45,21 +45,21 @@ func getFoodResponse(w http.ResponseWriter, r *http.Request) {
 
 	if params["food"] == "Egg" {
 		for key, value := range egg {
-			usersNutrience[key] += value
+			usersNutrients[key] += value
 		}
 	} else if params["food"] == "Cane" {
 		for key, value := range cane {
-			usersNutrience[key] += value
+			usersNutrients[key] += value
 		}
 	} else if params["food"] == "Yogurt" {
 		for key, value := range yogurt {
-			usersNutrience[key] += value
+			usersNutrients[key] += value
 		}
 	}
 
-	sendEmail(params["email"], map2string(usersNutrience))
+	sendEmail(params["email"], map2string(usersNutrients))
 
-	json.NewEncoder(w).Encode(usersNutrience)
+	json.NewEncoder(w).Encode(usersNutrients)
 }
 
 func sendEmail(to, message string) {
@@ -69,7 +69,7 @@ func sendEmail(to, message string) {
 
 	msg := "From: " + from + "\n" +
 		"To: " + to + "\n" +
-		"Subject: Nutrience Status\n\n" +
+		"Subject: Nutrients Status\n\n" +
 		message
 
 	err := smtp.SendMail("smtp.gmail.com:587",
