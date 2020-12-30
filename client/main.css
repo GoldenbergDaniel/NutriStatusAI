@@ -1,5 +1,5 @@
 :root {
-    --background: #CF1F4F;
+    --background: #dd3737;
     --font: 'Playfair Display', serif;
 }
 
@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #f6dee4;
+  background-color: #f6dede;
 }
 
 #title{
@@ -134,7 +134,7 @@ padding: 4px;
 .chart {
   position: absolute;
   margin-left: 700px;
-  margin-top: -420px;
+  margin-top: -520px;
 }
 
 .chart div {
