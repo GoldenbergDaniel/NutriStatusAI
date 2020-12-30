@@ -27,6 +27,13 @@
 
   <!--chart-->
 
+  <div id="labels">
+    <p>Calories:</p>
+    <p>Protein:</p>
+    <p>Fat:</p>
+    <p>Sugar:</p>
+    <p>Vitamin C:</p>
+  </div>
   
   <div class="chart"></div>
   
@@ -43,7 +50,7 @@ let nutrition = [5, 5, 5, 5, 5]
         .text(function(d) { return d; });
  </script>-->
 
-  <h3 id="message">If you reach your daily recommended nutrience, we will donate nutrient-rich food to people in need near you!</h3> 
+  <h3 id="message">If you reach your daily recommended nutrients, we will donate nutrient-rich food to people in need near you!</h3> 
 
   <div id="output"></div>
 
@@ -58,8 +65,8 @@ let nutrition = [5, 5, 5, 5, 5]
   <br/>
   
   <div id="details">
-    Email: <b><p id="email"></p></b>
-    Name: <b><p id="name"></p></b>
+    <p id="email">Email: <span></p>
+    <p id="name">Name: <span></p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -68,3 +75,4 @@ let nutrition = [5, 5, 5, 5, 5]
   <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet"> 
 </body>
+</html>

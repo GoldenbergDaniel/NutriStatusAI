@@ -8,14 +8,13 @@ let foodName
 
 function inputData() {
     email = document.getElementById("emailText").value;
-    document.getElementById("email").innerHTML = email;
+    document.getElementById("email").querySelector("span").innerHTML = email;
 
     userName = document.getElementById("nameText").value;
-    document.getElementById("name").innerHTML = userName;
+    document.getElementById("name").querySelector("span").innerHTML = userName;
   }
 
 function request() {
-    //var message = `Hello ${encodeURIComponent(userName)}, \n Your stats are below: \n test test test`
   var url = `http://localhost:8080/api/?email=${encodeURIComponent(email)}&name=${encodeURIComponent(userName)}&food-name=${encodeURIComponent(foodName)}`
 
   var request = new XMLHttpRequest()
@@ -59,8 +58,6 @@ async function init() {
 
     window.requestAnimationFrame(loop)
 
-    
-
     document.getElementById("webcam-container").appendChild(webcam.canvas)
 
     labelContainer = document.getElementById("label-container")
@@ -97,8 +94,4 @@ async function predict() {
             foodName = "Yogurt"
         }
     }
-}
-
-function getNutr() {
-    return nutrition
 }

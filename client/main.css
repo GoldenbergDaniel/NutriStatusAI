@@ -1,5 +1,5 @@
 :root {
-    --backgrounnd: #CF1F4F;
+    --background: #CF1F4F;
     --font: 'Playfair Display', serif;
 }
 
@@ -14,18 +14,18 @@ body {
 
 #title{
   font-size: 3em;
-  color: var(--backgrounnd);
+  color: var(--background);
   text-shadow: 0px 0px 10px lightgray;
-  margin-top: 20px;
+  padding: 10px 0;
 }
 
 hr { 
-  border: 1px dotted var(--backgrounnd);;
+  border: 1px dotted var(--background);;
 }
 
 #webcam-container {
     border-radius: 10px;
-    box-shadow: 0px 0px 16px var(--backgrounnd);
+    box-shadow: 0px 0px 16px var(--background);
     display: block;
     color: white;
     background-color: lightgray;
@@ -34,6 +34,10 @@ hr {
     height: 400px;
     width: 400px;
     padding: 5px;
+}
+
+button {
+  font-size: 16px;
 }
 
 button:hover {
@@ -49,10 +53,10 @@ button:active {
 
 #start {
   border-radius: 10px;
-    box-shadow: 0px 0px 16px var(--backgrounnd);
+    box-shadow: 0px 0px 16px var(--background);
     display: block;
     color: white;
-    background-color: var(--backgrounnd);
+    background-color: var(--background);
   border: 0;
   margin: 20px 0px 0px 110px;
   height: 50px;
@@ -63,7 +67,7 @@ button:active {
 background-color: lightgray;
 border: 0;
 border-radius: 5px;
-box-shadow: 0px 0px 5px var(--backgrounnd);
+box-shadow: 0px 0px 5px var(--background);
 margin: 30px 0px 0px 5px;
 height: 30px;
 width: 140px;
@@ -72,10 +76,10 @@ padding: 4px;
 
 #run {
   border-radius: 10px;
-    box-shadow: 0px 0px 16px var(--backgrounnd);
+    box-shadow: 0px 0px 16px var(--background);
     display: block;
     color: white;
-    background-color: var(--backgrounnd);
+    background-color: var(--background);
   border: 0;
   margin: 20px 0px 0px 245px;
   height: 50px;
@@ -89,10 +93,10 @@ padding: 4px;
 
 #add {
   border-radius: 10px;
-    box-shadow: 0px 0px 16px var(--backgrounnd);
+    box-shadow: 0px 0px 16px var(--background);
     
-    color: white;
-    background-color: var(--backgrounnd);
+  color: white;
+  background-color: var(--background);
   border: 0;
   height: 40px;
   width: 80px;
@@ -101,7 +105,28 @@ padding: 4px;
 }
 
 #details {
-  margin: 20px 0px 40px 110px;
+  display: inline-block;
+  margin: 20px 100px;
+  width: 400px;
+  padding: 10px;
+  color: var(--background);
+  background-color: rgba(250, 50, 100, 0.1);
+  border-radius: 8px;
+}
+
+#details span {
+  color: rgb(39, 39, 39);
+}
+
+#message {
+  position: absolute;
+  top: 380px;
+  left: 300px;
+  color: var(--background);
+  padding: 20px;
+  margin: 0 300px;
+  background-color: rgba(250, 50, 100, 0.1);
+  border-radius: 8px;
 }
 
 
@@ -111,9 +136,10 @@ padding: 4px;
   margin-left: 700px;
   margin-top: -420px;
 }
+
 .chart div {
   font: 10px sans-serif;
-  background-color: var(--backgrounnd);
+  background-color: var(--background);
   text-align: right;
   padding: 6px;
   margin: 4px;
@@ -122,11 +148,13 @@ padding: 4px;
   box-shadow: 0px 0px 8px lightgray;
 }
 
-
-
-#message {
+#labels {
   position: absolute;
-  top: 420px;
-  left: 625px;
-  color: var(--backgrounnd)
+  top: 175px;
+  left: 600px;
+}
+
+#labels p {
+  color: var(--background);
+  margin: 7px;
 }
