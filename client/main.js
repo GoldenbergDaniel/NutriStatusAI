@@ -25,11 +25,11 @@ function request() {
 
     let nutrition = [0, 0, 0, 0, 0]
 
-    nutrition[0] = parseFloat(response.Calories)
-    nutrition[1] = parseFloat(response.Protein)
-    nutrition[2] = parseFloat(response.Fat)
-    nutrition[3] = parseFloat(response.Sugar)
-    nutrition[4] = parseFloat(response.VitaminC)
+    nutrition[0] = parseFloat(response.Calories.toFixed(2))
+    nutrition[1] = parseFloat(response.Protein.toFixed(2))
+    nutrition[2] = parseFloat(response.Fat.toFixed(2))
+    nutrition[3] = parseFloat(response.Sugar.toFixed(2))
+    nutrition[4] = parseFloat(response.VitaminC.toFixed(2))
 
     var x = d3.scale.linear().domain([0, d3.max(nutrition)]).range([0, 420]);
 
@@ -53,11 +53,14 @@ async function init() {
   
     const flip = true
 
-    webcam = new tmImage.Webcam(200, 200, flip)
+    webcam = new tmImage.Webcam(400, 400, flip)
     await webcam.setup()
     await webcam.play()
 
     window.requestAnimationFrame(loop)
+
+    
+
     document.getElementById("webcam-container").appendChild(webcam.canvas)
 
     labelContainer = document.getElementById("label-container")
@@ -81,15 +84,15 @@ async function predict() {
 
         labelContainer.childNodes[i].innerHTML = classPrediction
 
-        if (prediction[0].probability.toFixed(2) == 0.85) {
+        if (prediction[0].probability.toFixed(2) >= 0.85) {
             foodName = "Egg"
         }
 
-        if (prediction[1].probability.toFixed(2) == 0.85) {
+        if (prediction[1].probability.toFixed(2) >= 0.85) {
             foodName = "Cane"
         }
 
-        if (prediction[3].probability.toFixed(2) == 0.85) {
+        if (prediction[3].probability.toFixed(2) >= 0.85) {
             window.alert(predicton[2])
             foodName = "Yogurt"
         }

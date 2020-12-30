@@ -1,11 +1,15 @@
 :root {
     --backgrounnd: #CF1F4F;
-    --font: 'Roboto', sans-serif;
+    --font: 'Playfair Display', serif;
 }
 
 * {
   font-family: var(--font);
 
+}
+
+body {
+  background-color: #f6dee4;
 }
 
 #title{
@@ -15,15 +19,21 @@
   margin-top: 20px;
 }
 
+hr { 
+  border: 1px dotted var(--backgrounnd);;
+}
+
 #webcam-container {
     border-radius: 10px;
     box-shadow: 0px 0px 16px var(--backgrounnd);
     display: block;
     color: white;
+    background-color: lightgray;
     border: 0;
     margin: 20px 0px 0px 110px;
     height: 400px;
     width: 400px;
+    padding: 5px;
 }
 
 button:hover {
@@ -46,7 +56,7 @@ button:active {
   border: 0;
   margin: 20px 0px 0px 110px;
   height: 50px;
-  width: 400px;
+  width: 410px;
 }
 
 .input {
@@ -73,6 +83,10 @@ padding: 4px;
 
 }
 
+#label-container {
+  margin: 5px 0px 0px 245px;
+}
+
 #add {
   border-radius: 10px;
     box-shadow: 0px 0px 16px var(--backgrounnd);
@@ -95,15 +109,24 @@ padding: 4px;
 .chart {
   position: absolute;
   margin-left: 700px;
-margin-top: -260px;
+  margin-top: -420px;
 }
 .chart div {
   font: 10px sans-serif;
   background-color: var(--backgrounnd);
   text-align: right;
-  padding: 3px;
+  padding: 6px;
   margin: 4px;
   color: white;
   border-radius: 5px;
   box-shadow: 0px 0px 8px lightgray;
+}
+
+
+
+#message {
+  position: absolute;
+  top: 420px;
+  left: 625px;
+  color: var(--backgrounnd)
 }

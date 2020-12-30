@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriStatusAI</title>
     <link href="./main.css" rel="stylesheet" type="text/css"/>
+
+  <script src="https://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
+
+  <script src="./chart.js"></script>
+
     <script src="main.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
@@ -12,6 +17,7 @@
 <body>
     <center>
       <div id="title">NutriStatusAI</div>
+      <hr/>
     </center>
 
     <button type="button" id="start" onclick="init()">Start</button>
@@ -20,11 +26,24 @@
 
 
   <!--chart-->
+
   
   <div class="chart"></div>
-  <script src="https://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
+  
+  <!-- <script>
+let nutrition = [5, 5, 5, 5, 5]
 
-  <script src="./chart.js"></script>
+    var x = d3.scale.linear().domain([0, d3.max(nutrition)]).range([0, 420]);
+
+    d3.select(".chart")
+        .selectAll("div")
+        .data(nutrition)
+        .enter().append("div")
+        .style("width", function(d) { return x(d) + "px"; })
+        .text(function(d) { return d; });
+ </script>-->
+
+  <h3 id="message">If you reach your daily recommended nutrience, we will donate nutrient-rich food to people in need near you!</h3> 
 
   <div id="output"></div>
 
@@ -45,4 +64,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet"> 
 </body>
